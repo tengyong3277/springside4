@@ -39,7 +39,11 @@
 		<jdbc.driver.artifactId>h2</jdbc.driver.artifactId>
 		<jdbc.driver.version>${h2.version}</jdbc.driver.version>
 		-->
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> b13866d2025ac26c1143af4f8453fd3c3716a258
 		<!-- jdbc mysql-->
 		<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
