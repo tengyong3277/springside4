@@ -646,7 +646,7 @@
 								<property file="src/main/resources/application.development.properties" />
 								<property file="src/main/resources/application.properties" />
 								
-								<property name="sql.type" value="h2" />
+								<property name="sql.type" value="mysql" />
 								
 								<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" onerror="continue">
 									<classpath refid="maven.test.classpath" />
