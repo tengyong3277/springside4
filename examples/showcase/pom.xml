@@ -13,11 +13,18 @@
 	<packaging>war</packaging>
 	<name>Springside :: Example :: Showcase</name>
 
-	<!-- 项目属性 -->
+	<!-- 项目属性 
 	<properties>
 		<jdbc.driver.groupId>com.h2database</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>h2</jdbc.driver.artifactId>
 		<jdbc.driver.version>${h2.version}</jdbc.driver.version>
+	</properties>
+	-->
+	
+	<properties>
+		<jdbc.driver.groupId>com.oracle</jdbc.driver.groupId>
+		<jdbc.driver.artifactId>ojdbc14</jdbc.driver.artifactId>
+		<jdbc.driver.version>14</jdbc.driver.version>
 	</properties>
 
 	<!-- 依赖项定义 -->
@@ -499,7 +506,7 @@
 								<property file="src/main/resources/application.development.properties" />
 								<property file="src/main/resources/application.properties" />
 
-								<property name="sql.type" value="h2" />
+								<property name="sql.type" value="oracle" />
 													
 								<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" onerror="continue">
 									<classpath refid="maven.test.classpath" />
