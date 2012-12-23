@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springside.examples.showcase.demos.schedule.UserCountScanner;
 import org.springside.examples.showcase.entity.User;
+import org.springside.examples.showcase.service.AccountEffectiveService;
 import org.springside.examples.showcase.service.AccountService;
 
 import com.google.common.collect.Lists;
@@ -27,8 +31,12 @@ import com.google.common.collect.Lists;
 @RequestMapping(value = "/account/user")
 public class UserController {
 
+	private static Logger logger = LoggerFactory.getLogger(UserController.class);
 	@Autowired
 	private AccountService accountService;
+	
+	@Autowired
+	private AccountEffectiveService accountEffectiveService;
 
 	//特别设定多个ReuiresRole之间为Or关系，而不是默认的And.
 	@RequiresRoles(value = { "Admin", "User" }, logical = Logical.OR)
@@ -36,6 +44,7 @@ public class UserController {
 	public String list(Model model) {
 		List<User> users = accountService.getAllUser();
 		model.addAttribute("users", users);
+		logger.info("users="+accountEffectiveService.getTeamWithDetail(1l));
 		return "account/userList";
 	}
 
