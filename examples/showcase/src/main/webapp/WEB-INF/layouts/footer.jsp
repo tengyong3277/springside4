@@ -1,4 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <div id="footer" class="span12">
-	Copyright &copy; 2005-2012 <a href="http://www.springside.org.cn">springside.org.cn</a>
+	Copyright &copy; 2005-2012 <a href="https://github.com/jnuc093/springside4">继远软件</a>
 </div>

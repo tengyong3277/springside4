@@ -58,7 +58,7 @@ public class AccountWebServiceWithPredefineClientFT extends BaseFunctionalTestCa
 		SearchUserResponse response = accountWebServiceClient.searchUser(null, null);
 
 		assertTrue(response.getUserList().size() >= 4);
-		assertEquals("Admin", response.getUserList().get(0).getName());
+		assertEquals("Jack", response.getUserList().get(0).getName());
 	}
 
 	/**

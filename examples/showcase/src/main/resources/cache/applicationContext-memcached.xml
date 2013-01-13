@@ -19,10 +19,17 @@
 		<property name="shutdownTimeout" value="1000"/>
 	</bean>
 
-	<beans profile="production,development,functional,test">
+	<beans profile="development,functional,test">
 		<!-- 演示用的JMemcached, 模拟Memcached服务器 -->
 		<bean id="memcachedSimulator" class="org.springside.modules.test.cache.memcached.MemcachedSimulator" lazy-init="false">
 			<property name="serverUrl" value="${memcached.url}" />
+		</bean>
+	</beans>
+	
+	<beans profile="production">
+		<!-- 演示用的JMemcached, 模拟newMemcached服务器 -->
+		<bean id="newmemcachedSimulator" class="org.springside.modules.test.cache.memcached.MemcachedSimulator" lazy-init="false">
+			<property name="serverUrl" value="${newmemcached.url}" />
 		</bean>
 	</beans>
 </beans>

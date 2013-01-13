@@ -378,6 +378,11 @@
 			<groupId>com.icegreen</groupId>
 			<artifactId>greenmail</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.springsource.org.apache.commons</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>3.1</version> 
+		</dependency>
 		<!-- TEST end -->
 	</dependencies>
 

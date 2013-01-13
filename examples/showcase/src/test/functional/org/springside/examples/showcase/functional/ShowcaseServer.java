@@ -10,9 +10,9 @@ import org.springside.modules.test.jetty.JettyFactory;
  */
 public class ShowcaseServer {
 
-	public static final int PORT = 8080;
+	public static final int PORT = 8083;
 	public static final String CONTEXT = "/showcase";
-	public static final String BASE_URL = "http://localhost:8080/showcase";
+	public static final String BASE_URL = "http://localhost:8083/showcase";
 	public static final String[] TLD_JAR_NAMES = new String[] { "sitemesh", "spring-webmvc", "shiro-web" };
 
 	public static void main(String[] args) throws Exception {

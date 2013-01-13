@@ -3,6 +3,7 @@
 .springBeans
 .settings
 target/
+examples/showcase/bin/
 logs/
 eclipse-local.bat
 org.eclipse.jdt.core.prefs
