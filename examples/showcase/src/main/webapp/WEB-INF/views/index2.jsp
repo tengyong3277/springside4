@@ -71,7 +71,12 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
         -->
-        <button class="btn btn-large btn-primary" type="submit">登录</button>
+        <a href="#" class="btn btn-large btn-primary" id="btn-submit">
+                    	登录
+                </a>
+                <!--  
+        <button class="btn btn-large btn-primary" id="btn-submit">登录</button>
+        -->
       </form>
 
     </div> <!-- /container -->
@@ -95,5 +100,13 @@
     <script src="static/bootstrap/2.0.4/js/bootstrap-carousel.js"></script>
     <script src="static/bootstrap/2.0.4/js/bootstrap-typeahead.js"></script>
     -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+	    		 $("#btn-submit").click(function () {
+	    			 $(".form-signin").submit();
+	             });	    		
+    })
+    
+    </script>
   </body>
 </html>

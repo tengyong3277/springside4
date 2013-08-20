@@ -20,13 +20,19 @@
 		<jdbc.driver.version>${h2.version}</jdbc.driver.version>
 	</properties>
 	-->
-	
+	<!-- 
 	<properties>
 		<jdbc.driver.groupId>com.oracle</jdbc.driver.groupId>
 		<jdbc.driver.artifactId>ojdbc14</jdbc.driver.artifactId>
 		<jdbc.driver.version>14</jdbc.driver.version>
 	</properties>
-
+	 -->
+	 
+	 <properties>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.26</version>
+	</properties>
 	<!-- 依赖项定义 -->
 	<dependencies>
 		<!-- SPRINGSIDE begin -->

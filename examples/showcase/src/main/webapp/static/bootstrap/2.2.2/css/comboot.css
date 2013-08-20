@@ -1,0 +1,54 @@
+.selectedtr{
+  background-color: #F5F5F5;
+}
+.tabtitle{
+  background:url(../img/bg_header.jpg) repeat-x;color:#FFFFFF;font-weight:bold;
+}
+.tabstyle{
+	table-layout: fixed;
+}
+.tabstyle th,td{
+  border: 1px solid #DDDDDD;
+  overflow: hidden;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;
+}
+.pageinput{
+  margin:-1px;width:30px;
+}
+.formsearch{
+	margin: 10px 0px;
+	padding: 0px;
+}
+.formsearch table{
+	font-size: 12px;
+}
+.formsearch table th{
+	text-align: right;
+}
+.formsearch table,th,td{
+	border: none;
+}
+.formsearch table th,td{
+	vertical-align: middle;
+}
+.divbtns{
+	margin-top: 5px;
+}
+.tabDiv{
+	border: 1px solid #DDDDDD;
+	padding-top: 5px;
+}
+.tabclose{
+	padding:0px 2px;
+	margin-left:3px;
+	font-size:10px;
+	color:#005580;
+	background-color:#FFFFFF;
+	cursor:pointer;
+	border:1px solid #DDDDDD;
+	line-height:12px;
+	-webkit-border-radius:4px 4px 4px 4px;
+	border-radius:4px 4px 4px 4px;
+}
+#myModalLabel{
+	font-weight:bold;
+}
