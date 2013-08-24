@@ -10,7 +10,12 @@
 	<jaxws:endpoint address="/accountservice">
 		<jaxws:implementor ref="accountWebService" />
 	</jaxws:endpoint>
+	
+	<jaxws:endpoint address="/waterservice">
+		<jaxws:implementor ref="waterWebService" />
+	</jaxws:endpoint>
 
 	<!-- WebService的实现Bean定义 -->
 	<bean id="accountWebService" class="org.springside.examples.showcase.webservice.soap.AccountWebServiceImpl" />
+	<bean id="waterWebService" class="org.springside.examples.showcase.webservice.soap.WaterWebServiceImpl" />
 </beans>
