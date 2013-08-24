@@ -3,6 +3,7 @@ package org.springside.examples.showcase.repository.mybatis;
 import java.util.List;
 import java.util.Map;
 
+import org.springside.examples.showcase.entity.Message;
 import org.springside.examples.showcase.entity.User;
 
 /**
@@ -17,6 +18,8 @@ public interface UserMybatisDao {
 	public User get(Long id);
 
 	public List<User> search(Map<String, Object> parameters);
+	
+	public List<Message> searchMessage(Map<String, Object> parameters);
 
 	public void save(User user);
 

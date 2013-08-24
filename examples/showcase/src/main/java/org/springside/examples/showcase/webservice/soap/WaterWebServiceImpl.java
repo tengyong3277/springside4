@@ -1,17 +1,19 @@
 package org.springside.examples.showcase.webservice.soap;
 
+import java.util.List;
+
 import javax.jws.WebService;
 import javax.validation.Validator;
 
-import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springside.examples.showcase.entity.User;
+import org.springside.examples.showcase.entity.Message;
 import org.springside.examples.showcase.service.AccountEffectiveService;
-import org.springside.examples.showcase.webservice.soap.response.GetUserResponse;
+import org.springside.examples.showcase.webservice.soap.response.SearchMessageResponse;
+import org.springside.examples.showcase.webservice.soap.response.SearchUserResponse;
 import org.springside.examples.showcase.webservice.soap.response.base.WSResponse;
-import org.springside.examples.showcase.webservice.soap.response.dto.UserDTO;
+import org.springside.examples.showcase.webservice.soap.response.dto.MessageDTO;
 import org.springside.modules.mapper.BeanMapper;
 
 /**
@@ -37,30 +39,18 @@ public class WaterWebServiceImpl implements WaterWebService {
 	/**
 	 * @see AccountWebService#getUser()
 	 */
-	@Override
-	public GetUserResponse getMessage(Long id) {
-		GetUserResponse response = new GetUserResponse();
+	public SearchMessageResponse searchMessage(String loginName, String name) {
+		SearchMessageResponse response = new SearchMessageResponse();
 		try {
-
-			Validate.notNull(id, "id参数为空");
-
-			User user = accountService.getUser(id);
-
-			Validate.notNull(user, "用户不存在(id:" + id + ")");
-
-			UserDTO dto = BeanMapper.map(user, UserDTO.class);
-			response.setUser(dto);
-
+			List<Message> userList = accountService.searchMessage(loginName, name);
+			logger.info("userList"+userList.size());
+			List<MessageDTO> dtoList = BeanMapper.mapList(userList, MessageDTO.class);
+			response.setMessageList(dtoList);
 			return response;
-
-		} catch (IllegalArgumentException e) {
-			return handleParameterError(response, e);
 		} catch (RuntimeException e) {
 			return handleGeneralError(response, e);
 		}
 	}
-
-
 
 	private <T extends WSResponse> T handleParameterError(T response, Exception e, String message) {
 		logger.error(message, e.getMessage());

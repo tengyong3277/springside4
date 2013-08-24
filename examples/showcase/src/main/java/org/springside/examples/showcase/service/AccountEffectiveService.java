@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.showcase.demos.cache.memcached.MemcachedObjectType;
+import org.springside.examples.showcase.entity.Message;
 import org.springside.examples.showcase.entity.Team;
 import org.springside.examples.showcase.entity.User;
 import org.springside.examples.showcase.repository.mybatis.TeamMybatisDao;
@@ -65,6 +66,13 @@ public class AccountEffectiveService {
 		parameters.put("loginName", loginName);
 		parameters.put("name", name);
 		return userDao.search(parameters);
+	}
+	
+	public List<Message> searchMessage(String loginName, String name) {
+		Map<String, Object> parameters = Maps.newHashMap();
+		parameters.put("loginName", loginName);
+		parameters.put("name", name);
+		return userDao.searchMessage(parameters);
 	}
 
 	@Transactional
