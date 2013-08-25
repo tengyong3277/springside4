@@ -1,6 +1,6 @@
 ###常用服务命令
 
-     service jenkins start 
+     先打 module/test目录下包， 后执行module/parent目录下install.bat目录文件
 
 ###nginx服务配置
 
