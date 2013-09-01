@@ -1,9 +1,9 @@
 package org.springside.examples.showcase.webservice.soap;
 
+import java.util.List;
+
 import javax.jws.WebParam;
 import javax.jws.WebService;
-
-import org.springside.examples.showcase.webservice.soap.response.SearchMessageResponse;
 
 /**
  * JAX-WS2.0的WebService接口定义类.
@@ -21,7 +21,7 @@ public interface WaterWebService {
 	 * 获取用户信息.
 	 */
 	
-	SearchMessageResponse searchMessage(@WebParam(name = "loginName") String loginName, @WebParam(name = "name") String name);
+	List searchMessage(@WebParam(name = "loginName") String loginName, @WebParam(name = "name") String name);
 
 
 }

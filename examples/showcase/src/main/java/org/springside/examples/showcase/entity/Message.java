@@ -1,7 +1,5 @@
 package org.springside.examples.showcase.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -12,15 +10,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="water_message")
-public class Message extends IdEntity implements Serializable {
+public class Message extends IdEntity    {
 	private static final long serialVersionUID = 1L;
+	
 
 	private String content;
 
 
 	private String title;
+	
 
-    public Message() {
+	public Message() {
     }
 
 	public String getContent() {

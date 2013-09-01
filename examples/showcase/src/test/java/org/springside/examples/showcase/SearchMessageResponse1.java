@@ -1,4 +1,4 @@
-package org.springside.examples.showcase.webservice.soap.response;
+package org.springside.examples.showcase ;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import org.springside.examples.showcase.webservice.soap.response.base.WSResponse
 import org.springside.examples.showcase.webservice.soap.response.dto.MessageDTO;
 
 @XmlType(name = "SearchMessageResponse", namespace = WsConstants.NS)
-public class SearchMessageResponse extends WSResponse {
+public class SearchMessageResponse1 extends WSResponse {
 
 	private List<MessageDTO> userList;
 
-	public SearchMessageResponse() {
+	public SearchMessageResponse1() {
 	}
 
-	public SearchMessageResponse(List<MessageDTO> userList) {
+	public SearchMessageResponse1(List<MessageDTO> userList) {
 		this.userList = userList;
 	}
 

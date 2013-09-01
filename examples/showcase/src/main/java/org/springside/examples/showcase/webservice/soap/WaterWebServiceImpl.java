@@ -1,5 +1,6 @@
 package org.springside.examples.showcase.webservice.soap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebService;
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springside.examples.showcase.entity.Message;
 import org.springside.examples.showcase.service.AccountEffectiveService;
 import org.springside.examples.showcase.webservice.soap.response.SearchMessageResponse;
-import org.springside.examples.showcase.webservice.soap.response.SearchUserResponse;
 import org.springside.examples.showcase.webservice.soap.response.base.WSResponse;
 import org.springside.examples.showcase.webservice.soap.response.dto.MessageDTO;
 import org.springside.modules.mapper.BeanMapper;
@@ -27,7 +27,7 @@ import org.springside.modules.mapper.BeanMapper;
 @WebService(serviceName = "WaterService", endpointInterface = "org.springside.examples.showcase.webservice.soap.WaterWebService", targetNamespace = WsConstants.NS)
 public class WaterWebServiceImpl implements WaterWebService {
 
-	private static Logger logger = LoggerFactory.getLogger(AccountWebServiceImpl.class);
+	private static Logger logger = LoggerFactory.getLogger(WaterWebServiceImpl.class);
 
 	@Autowired
 	private AccountEffectiveService accountService;
@@ -39,16 +39,21 @@ public class WaterWebServiceImpl implements WaterWebService {
 	/**
 	 * @see AccountWebService#getUser()
 	 */
-	public SearchMessageResponse searchMessage(String loginName, String name) {
+	public List searchMessage(String loginName, String name) {
 		SearchMessageResponse response = new SearchMessageResponse();
 		try {
-			List<Message> userList = accountService.searchMessage(loginName, name);
+			List<Message>  userList = accountService.searchMessage(loginName, name);
 			logger.info("userList"+userList.size());
 			List<MessageDTO> dtoList = BeanMapper.mapList(userList, MessageDTO.class);
 			response.setMessageList(dtoList);
-			return response;
+			logger.info("****************************5**" );
+			 
+			return new ArrayList();
 		} catch (RuntimeException e) {
-			return handleGeneralError(response, e);
+
+			e.printStackTrace();
+			logger.info("****************************6**" );
+			return null;
 		}
 	}
 
