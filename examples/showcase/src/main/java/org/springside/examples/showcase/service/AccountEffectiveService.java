@@ -72,8 +72,8 @@ public class AccountEffectiveService {
 		Map<String, Object> parameters = Maps.newHashMap();
 		parameters.put("loginName", loginName);
 		parameters.put("name", name);
-		System.out.println("****************************3**" );
-		return userDao.searchMessage(parameters);
+		List<Message> list=userDao.searchMessage(parameters);
+		return list;
 	}
 
 	@Transactional

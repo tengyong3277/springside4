@@ -1,6 +1,5 @@
 package org.springside.examples.showcase.webservice.soap;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebService;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springside.examples.showcase.entity.Message;
 import org.springside.examples.showcase.service.AccountEffectiveService;
 import org.springside.examples.showcase.webservice.soap.response.SearchMessageResponse;
+import org.springside.examples.showcase.webservice.soap.response.SearchUserResponse;
 import org.springside.examples.showcase.webservice.soap.response.base.WSResponse;
 import org.springside.examples.showcase.webservice.soap.response.dto.MessageDTO;
 import org.springside.modules.mapper.BeanMapper;
@@ -39,16 +39,14 @@ public class WaterWebServiceImpl implements WaterWebService {
 	/**
 	 * @see AccountWebService#getUser()
 	 */
-	public List searchMessage(String loginName, String name) {
+	public SearchMessageResponse searchMessage(String loginName, String name) {
 		SearchMessageResponse response = new SearchMessageResponse();
 		try {
 			List<Message>  userList = accountService.searchMessage(loginName, name);
-			logger.info("userList"+userList.size());
+			logger.info("messageList.size()="+userList.size());
 			List<MessageDTO> dtoList = BeanMapper.mapList(userList, MessageDTO.class);
 			response.setMessageList(dtoList);
-			logger.info("****************************5**" );
-			 
-			return new ArrayList();
+			return response;
 		} catch (RuntimeException e) {
 
 			e.printStackTrace();

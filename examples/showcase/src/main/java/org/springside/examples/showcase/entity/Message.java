@@ -13,12 +13,9 @@ import javax.persistence.Table;
 public class Message extends IdEntity    {
 	private static final long serialVersionUID = 1L;
 	
-
 	private String content;
 
-
 	private String title;
-	
 
 	public Message() {
     }

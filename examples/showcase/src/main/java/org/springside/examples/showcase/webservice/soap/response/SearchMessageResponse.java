@@ -13,22 +13,22 @@ import org.springside.examples.showcase.webservice.soap.response.dto.MessageDTO;
 @XmlType(name = "SearchMessageResponse", namespace = WsConstants.NS)
 public class SearchMessageResponse extends WSResponse {
 
-	private List<MessageDTO> userList;
+	private List<MessageDTO> messageList;
 
 	public SearchMessageResponse() {
 	}
 
-	public SearchMessageResponse(List<MessageDTO> userList) {
-		this.userList = userList;
+	public SearchMessageResponse(List<MessageDTO> messageList) {
+		this.messageList = messageList;
 	}
 
-	@XmlElementWrapper(name = "userList")
-	@XmlElement(name = "user")
+	@XmlElementWrapper(name = "messageList")
+	@XmlElement(name = "message")
 	public List<MessageDTO> getMessageList() {
-		return userList;
+		return messageList;
 	}
 
-	public void setMessageList(List<MessageDTO> userList) {
-		this.userList = userList;
+	public void setMessageList(List<MessageDTO> messageList) {
+		this.messageList = messageList;
 	}
 }
