@@ -107,7 +107,7 @@
 			  <div class="page-header">
 	            <h1>设置屏幕信息</h1>
 	          </div>
-	
+				<form id="commentForm" method="get" action="" class="form-horizontal">
 				<div id="rootwizard">
 					<ul>
 					  	<li><a href="#tab1" data-toggle="tab"><span class="label">1</span> 基本设置</a></li>
@@ -117,25 +117,63 @@
 					</ul>
 					<div class="tab-content">
 					    <div class="tab-pane" id="tab1">
+					    	<div class="control-group">
+							    <label class="control-label" for="name">用户名:</label>
+							    <div class="controls">
+							      <input type="text" id="namefield" name="namefield" class="required">
+							    </div>
+							</div>
+							<div class="control-group">
+							    <label class="control-label" for="name">手机:</label>
+							    <div class="controls">
+							      <input type="text" id="cellphonefield" name="cellphonefield" class="required">
+							    </div>
+							</div>
+							
 					      	<div class="control-group">
-							    <label class="control-label" for="email">Email</label>
+							    <label class="control-label" for="email">邮箱:</label>
 							    <div class="controls">
 							      <input type="text" id="emailfield" name="emailfield" class="required email">
 							    </div>
 							  </div>
-
-							  <div class="control-group">
-							    <label class="control-label" for="name">Name</label>
+					    </div>
+						<div class="tab-pane" id="tab2">
+							<div class="control-group">
+								<label class="control-label" for="email">播放时间:当天</label>
+								<div class="controls">
+									<input id="spinner" name="value">
+									点
+									
+									
+								</div>
+							</div>
+							
+							<div class="control-group">
+							    	<label class="control-label" for="to">至</label>
+							    	<div class="controls">
+										<p id="radioset-today">
+										<input type="radio" id="radio1" name="radio"><label for="radio1">当天</label>
+	            						<input type="radio" id="radio2" name="radio" ><label for="radio2">次日</label>
+	            						</p>
+									<input id="spinner" name="value">
+									</div>
+							  </div>
+							
+							<div class="control-group">
+							    <label class="control-label" for="email">允许播放的模式:</label>
 							    <div class="controls">
-							      <input type="text" id="namefield" name="namefield" class="required">
+							    	<p id="run-model">
+										<input type="radio" id="radio-share" name="radio-run-model"><label for="radio-share">共享</label>
+	            						<input type="radio" id="radio-single" name="radio-run-model" ><label for="radio-single">单独</label>
+	            						<input type="radio" id="radio-mix" name="radio-run-model" checked="checked"><label for="radio-mix">混合</label>
+	            					</p>
 							    </div>
 							  </div>
-					    </div>
-					    <div class="tab-pane" id="tab2">
-					      2
-					    </div>
+							
+							
+						</div>
 						<div class="tab-pane" id="tab3">
-							<div class="row-fluid">
+						<div class="row-fluid">
         <ul class="thumbnails">
             <li class="span4">
                 <div class="thumbnail">
@@ -179,6 +217,7 @@
 						</ul>
 					</div>	
 				</div>
+				</form>
 			</section>
  		</div>
 	</div>
@@ -1233,15 +1272,42 @@ $( "#tooltip-bottom" ).tooltip({
 <script src="../jquery-ui-bootstrap-05/assets/js/docs.js"></script>
 <script src="../jquery-ui-bootstrap-05/assets/js/demo.js"></script>
 
+<script src="../jquery/jquery.validate.min.js"></script>
 <script src="../twitter-bootstrap-wizard/jquery.bootstrap.wizard.js"></script>
 	<script src="../twitter-bootstrap-wizard/prettify.js"></script>
+	jquery.validate.min.js
 	<script>
 	$(document).ready(function() {
+		 
+		var $validator = $("#commentForm").validate({
+				rules : {
+					emailfield : {
+						required : true,
+						email : true,
+						minlength : 3
+					},
+					namefield : {
+						required : true,
+						minlength : 3
+					}
+				}
+			});
 		
-		
-	  	$('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});	
-		window.prettyPrint && prettyPrint()
-	});	
+		$('#radioset-today').buttonset();
+		$('#run-model').buttonset();
+
+			$('#rootwizard').bootstrapWizard({
+				'tabClass' : 'bwizard-steps',
+				'onNext': function(tab, navigation, index) {
+					var $valid = $("#commentForm").valid();
+					if(!$valid) {
+					$validator.focusInvalid();
+					return false;
+					}
+				}
+			});
+			window.prettyPrint && prettyPrint()
+		});
 	</script>
 </body>
 </html>
